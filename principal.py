@@ -2,9 +2,11 @@ import sys
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import RegresionLineal as myRL
 
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import (QTableWidgetItem,QTableWidget)
+
 
 
 
@@ -41,10 +43,15 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.tblDatos.setRowCount(filas)
             self.tblDatos.setColumnCount(columnas)
             
+            self.tblDatos2.setVerticalHeaderLabels(('Row 1', 'Row 2', 'Row 3'))
+            self.tblDatos2.setRowCount(filas)
+            self.tblDatos2.setColumnCount(columnas)
+
             for c in range(0,columnas):
                 for f in range(0,filas):
                     dato=str(self.df.iloc[f,c])
                     self.tblDatos.setItem(f,c,QTableWidgetItem(dato))
+                    self.tblDatos2.setItem(f,c,QTableWidgetItem(dato))
 
     def plot (self):
         x=self.df[str(self.cmbX.currentText())]
@@ -58,6 +65,9 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if(text!=''):
             estad_st=str(self.cmbEstadistica.currentText())+str(self.df[self.cmbEstadistica.currentText()].describe())
             self.txtResultados.setText(estad_st)
+    
+   # def regresionLineal(self):
+
         
 if __name__ == "__main__":
     app =  QtWidgets.QApplication(sys.argv)
