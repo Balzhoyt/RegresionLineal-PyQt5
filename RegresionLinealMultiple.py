@@ -7,9 +7,10 @@ class regresionLinealMultiple:
         self.b0=0
         self.b1=0
         self.b2=0
+        self.x1x1=0.0
     
     def operaciones(self,x1,x2,y):
-        x1x1=sum([x1**2 for x in x1])
+        self.x1x1=sum([x1**2 for x in x1])
     
     def beta1(self,x,y):
         termino1=x-np.average(x)
