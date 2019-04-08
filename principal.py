@@ -21,6 +21,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.btnCargarDatos.clicked.connect(self.getxls)
         self.btnGraficar.clicked.connect(self.plot)
         self.cmbEstadistica.currentTextChanged.connect(self.estadisticas)
+        #self.btnEstadistica.clicked.connect(self.estadisticas)
         self.btnEntrenar.clicked.connect(self.regresionLineal)
         self.btnCalcular.clicked.connect(self.regresionLineal_Prueba)
         
@@ -36,6 +37,8 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if filePath != "":
             
             self.df=pd.read_csv(str(filePath))
+            
+            self.cmbEstadistica.addItems(list(self.df.columns.values))
             self.cmbX.addItems(list(self.df.columns.values))
             self.cmbY.addItems(list(self.df.columns.values))
 
@@ -77,13 +80,18 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         y=self.df[str(self.cmbY2.currentText())]
         rl=myRL.regresionLineal()
         rl.plot_recta(x,y)
-        self.txtB0.setText(str(rl.b0))
-        self.txtB1.setText(str(rl.b1))
+        b0="{0:.2f}".format(rl.b0)
+        b1="{0:.2f}".format(rl.b1)
+        self.txtB0.setPlainText(b0)
+        self.txtB1.setPlainText(b1)
     
     def regresionLineal_Prueba(self):
-        b0=float(self.txtB0.setText(str(rl.b0)))
-        b1=float(self.txtB1.setText(str(rl.b1)))
-        x=float(self.txtX.)
+        b0=float(self.txtB0.toPlainText())
+        b1=float(self.txtB1.toPlainText())
+        x=float(self.txtX.toPlainText())
+        y="{0:.2f}".format(b0+(b1*x))
+        self.txtY.setPlainText(str(y))
+        
         
 
 
