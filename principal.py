@@ -20,6 +20,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.btnCargarDatos.clicked.connect(self.getxls)
         self.btnGraficar.clicked.connect(self.plot)
+        self.btnGraficaDescriptiva.clicked.connect(self.plot_descriptivo)
         self.cmbEstadistica.currentTextChanged.connect(self.estadisticas)
         #self.btnEstadistica.clicked.connect(self.estadisticas)
         self.btnEntrenar.clicked.connect(self.regresionLineal)
@@ -56,15 +57,15 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.tblDatos.clearContents()
             columnas=int(self.df.shape[1])
             filas=int(self.df.shape[0])
-            self.tblDatos.setVerticalHeaderLabels(('Row 1', 'Row 2', 'Row 3'))
+           # self.tblDatos.setVerticalHeaderLabels(('Row 1', 'Row 2', 'Row 3'))
             self.tblDatos.setRowCount(filas)
             self.tblDatos.setColumnCount(columnas)
             
-            self.tblDatos2.setVerticalHeaderLabels(('Row 1', 'Row 2', 'Row 3'))
+            #self.tblDatos2.setVerticalHeaderLabels(('Row 1', 'Row 2', 'Row 3'))
             self.tblDatos2.setRowCount(filas)
             self.tblDatos2.setColumnCount(columnas)
 
-            self.tblDatos3.setVerticalHeaderLabels(('Row 1', 'Row 2', 'Row 3'))
+            #self.tblDatos3.setVerticalHeaderLabels(('Row 1', 'Row 2', 'Row 3'))
             self.tblDatos3.setRowCount(filas)
             self.tblDatos3.setColumnCount(columnas)
 
@@ -79,8 +80,13 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def plot (self):
         x=self.df[str(self.cmbX.currentText())]
         y=self.df[str(self.cmbY.currentText())]
-        sns.pairplot(self.df)
         plt.plot(x,y)
+        plt.show()
+    
+    def plot_descriptivo (self):
+        x=self.df[str(self.cmbX.currentText())]
+        y=self.df[str(self.cmbY.currentText())]
+        sns.pairplot(self.df)
         plt.show()
                 
     def estadisticas(self):
