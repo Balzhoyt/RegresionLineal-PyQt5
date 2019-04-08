@@ -29,8 +29,11 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def getxls(self):
         self.cmbX.clear()
         self.cmbY.clear()
-        self.cmbX2.clear()
-        self.cmbY2.clear()
+        self.cmbXs.clear()
+        self.cmbYs.clear()
+        self.cmbX1m.clear()
+        self.cmbX2m.clear()
+        self.cmbYm.clear()
         self.cmbEstadistica.clear()
         self.txtResultados.setText("")
         filePath, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'ABRIR ARCHIVO', 'D:/Maestria/base de datos y conocimiento/RegresionLineal PyQt5/data')
@@ -42,8 +45,12 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.cmbX.addItems(list(self.df.columns.values))
             self.cmbY.addItems(list(self.df.columns.values))
 
-            self.cmbX2.addItems(list(self.df.columns.values))
-            self.cmbY2.addItems(list(self.df.columns.values))
+            self.cmbXs.addItems(list(self.df.columns.values))
+            self.cmbYs.addItems(list(self.df.columns.values))
+
+            self.cmbX1m.addItems(list(self.df.columns.values))
+            self.cmbX2m.addItems(list(self.df.columns.values))
+            self.cmbYm.addItems(list(self.df.columns.values))
             
             # LLENAR LA TABLA
             self.tblDatos.clearContents()
@@ -57,11 +64,17 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.tblDatos2.setRowCount(filas)
             self.tblDatos2.setColumnCount(columnas)
 
+            self.tblDatos3.setVerticalHeaderLabels(('Row 1', 'Row 2', 'Row 3'))
+            self.tblDatos3.setRowCount(filas)
+            self.tblDatos3.setColumnCount(columnas)
+
+
             for c in range(0,columnas):
                 for f in range(0,filas):
                     dato=str(self.df.iloc[f,c])
                     self.tblDatos.setItem(f,c,QTableWidgetItem(dato))
                     self.tblDatos2.setItem(f,c,QTableWidgetItem(dato))
+                    self.tblDatos3.setItem(f,c,QTableWidgetItem(dato))
 
     def plot (self):
         x=self.df[str(self.cmbX.currentText())]
@@ -91,6 +104,23 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         x=float(self.txtX.toPlainText())
         y="{0:.2f}".format(b0+(b1*x))
         self.txtY.setPlainText(str(y))
+        
+    def regresionLinealMultiple(self):
+        x=self.df[str(self.cmbX2m.currentText())]
+        y=self.df[str(self.cmbY2m.currentText())]
+        rl=myRL.regresionLineal()
+        rl.plot_recta(x,y)
+        b0="{0:.2f}".format(rl.b0)
+        b1="{0:.2f}".format(rl.b1)
+        self.txtB0m.setPlainText(b0)
+        self.txtB1m.setPlainText(b1)
+    
+    def regresionLinealMultiple_Prueba(self):
+        b0=float(self.txtB0m.toPlainText())
+        b1=float(self.txtB1m.toPlainText())
+        x=float(self.txtXm.toPlainText())
+        y="{0:.2f}".format(b0+(b1*x))
+        self.txtYm.setPlainText(str(y))
         
         
 

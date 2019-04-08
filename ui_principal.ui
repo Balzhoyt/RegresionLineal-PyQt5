@@ -37,7 +37,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tabSelecionarDatos">
      <attribute name="title">
@@ -236,7 +236,7 @@
         <string>Valores para X:</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="cmbX2">
+      <widget class="QComboBox" name="cmbXs">
        <property name="geometry">
         <rect>
          <x>152</x>
@@ -259,7 +259,7 @@
         <string>Valores para Y:</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="cmbY2">
+      <widget class="QComboBox" name="cmbYs">
        <property name="geometry">
         <rect>
          <x>151</x>
@@ -481,7 +481,7 @@
         <string>Valores para X1:</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="cmbX3">
+      <widget class="QComboBox" name="cmbX1m">
        <property name="geometry">
         <rect>
          <x>150</x>
@@ -504,7 +504,7 @@
         <string>Valores para Y:</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="cmbY3">
+      <widget class="QComboBox" name="cmbYm">
        <property name="geometry">
         <rect>
          <x>150</x>
@@ -527,7 +527,7 @@
         <string>Valores para X2:</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="cmbX3_2">
+      <widget class="QComboBox" name="cmbX2m">
        <property name="geometry">
         <rect>
          <x>150</x>
