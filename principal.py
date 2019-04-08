@@ -89,8 +89,8 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.txtResultados.setText(estad_st)
     
     def regresionLineal(self):
-        x=self.df[str(self.cmbX2.currentText())]
-        y=self.df[str(self.cmbY2.currentText())]
+        x=self.df[str(self.cmbXs.currentText())]
+        y=self.df[str(self.cmbYs.currentText())]
         rl=myRL.regresionLineal()
         rl.plot_recta(x,y)
         b0="{0:.2f}".format(rl.b0)
