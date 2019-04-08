@@ -1,3 +1,9 @@
 {
-    "python.pythonPath": "C:\\Users\\balzh\\Anaconda3\\envs\\balzhoyt\\python.exe"
+    "python.pythonPath": "C:\\Users\\balzh\\Anaconda3\\envs\\balzhoyt\\python.exe",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    }
 }
