@@ -37,7 +37,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabSelecionarDatos">
      <attribute name="title">
@@ -223,7 +223,7 @@
         <string>Valores de X:</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="cmbX_2">
+      <widget class="QComboBox" name="cmbX2">
        <property name="geometry">
         <rect>
          <x>152</x>
@@ -246,7 +246,7 @@
         <string>Valores de Y:</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="cmbY_2">
+      <widget class="QComboBox" name="cmbY2">
        <property name="geometry">
         <rect>
          <x>151</x>
