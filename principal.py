@@ -25,6 +25,8 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def getxls(self):
         self.cmbX.clear()
         self.cmbY.clear()
+        #self.cmbX2.clear()
+        #self.cmbY2.clear()
         self.cmbEstadistica.clear()
         self.txtResultados.setText("")
         filePath, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'ABRIR ARCHIVO', 'D:/Maestria/base de datos y conocimiento/RegresionLineal PyQt5/data')
@@ -33,8 +35,10 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.df=pd.read_csv(str(filePath))
             self.cmbX.addItems(list(self.df.columns.values))
             self.cmbY.addItems(list(self.df.columns.values))
-            self.cmbEstadistica.addItems(list(self.df.columns.values))
 
+            #self.cmbX2.addItems(list(self.df.columns.values))
+            #self.cmbY2.addItems(list(self.df.columns.values))
+            
             # LLENAR LA TABLA
             self.tblDatos.clearContents()
             columnas=int(self.df.shape[1])
@@ -61,12 +65,18 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
                 
     def estadisticas(self):
         text = str(self.cmbEstadistica.currentText())
-        print(text)
+        
         if(text!=''):
             estad_st=str(self.cmbEstadistica.currentText())+str(self.df[self.cmbEstadistica.currentText()].describe())
             self.txtResultados.setText(estad_st)
     
-   # def regresionLineal(self):
+    def regresionLineal(self):
+        x=self.df[str(self.cmbX2.currentText())]
+        y=self.df[str(self.cmbY2.currentText())]
+        rl=myRL.regresionLineal()
+        rl.plot_recta(x,y)
+        self.txtB0.setText('probadad')
+
 
         
 if __name__ == "__main__":
