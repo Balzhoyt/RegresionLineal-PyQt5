@@ -21,12 +21,15 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.btnCargarDatos.clicked.connect(self.getxls)
         self.btnGraficar.clicked.connect(self.plot)
         self.cmbEstadistica.currentTextChanged.connect(self.estadisticas)
+        self.btnEntrenar.clicked.connect(self.regresionLineal)
+        self.btnCalcular.clicked.connect(self.regresionLineal_Prueba)
+        
        
     def getxls(self):
         self.cmbX.clear()
         self.cmbY.clear()
-        #self.cmbX2.clear()
-        #self.cmbY2.clear()
+        self.cmbX2.clear()
+        self.cmbY2.clear()
         self.cmbEstadistica.clear()
         self.txtResultados.setText("")
         filePath, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'ABRIR ARCHIVO', 'D:/Maestria/base de datos y conocimiento/RegresionLineal PyQt5/data')
@@ -36,8 +39,8 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.cmbX.addItems(list(self.df.columns.values))
             self.cmbY.addItems(list(self.df.columns.values))
 
-            #self.cmbX2.addItems(list(self.df.columns.values))
-            #self.cmbY2.addItems(list(self.df.columns.values))
+            self.cmbX2.addItems(list(self.df.columns.values))
+            self.cmbY2.addItems(list(self.df.columns.values))
             
             # LLENAR LA TABLA
             self.tblDatos.clearContents()
@@ -65,7 +68,6 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
                 
     def estadisticas(self):
         text = str(self.cmbEstadistica.currentText())
-        
         if(text!=''):
             estad_st=str(self.cmbEstadistica.currentText())+str(self.df[self.cmbEstadistica.currentText()].describe())
             self.txtResultados.setText(estad_st)
@@ -75,7 +77,14 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         y=self.df[str(self.cmbY2.currentText())]
         rl=myRL.regresionLineal()
         rl.plot_recta(x,y)
-        self.txtB0.setText('probadad')
+        self.txtB0.setText(str(rl.b0))
+        self.txtB1.setText(str(rl.b1))
+    
+    def regresionLineal_Prueba(self):
+        b0=float(self.txtB0.setText(str(rl.b0)))
+        b1=float(self.txtB1.setText(str(rl.b1)))
+        x=float(self.txtX.)
+        
 
 
         
