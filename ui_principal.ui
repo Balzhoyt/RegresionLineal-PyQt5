@@ -37,7 +37,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tabSelecionarDatos">
      <attribute name="title">
@@ -158,9 +158,9 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="tabRegresionLineal">
+    <widget class="QWidget" name="tabRegresionLinealSimple">
      <attribute name="title">
-      <string>Aplicar Regresion Lineal</string>
+      <string>Regresión lineal simple</string>
      </attribute>
      <widget class="QTableWidget" name="tblDatos2">
       <property name="geometry">
@@ -226,14 +226,14 @@
       <widget class="QLabel" name="lbValoresX_4">
        <property name="geometry">
         <rect>
-         <x>51</x>
+         <x>34</x>
          <y>50</y>
-         <width>94</width>
+         <width>111</width>
          <height>25</height>
         </rect>
        </property>
        <property name="text">
-        <string>Valores de X:</string>
+        <string>Valores para X:</string>
        </property>
       </widget>
       <widget class="QComboBox" name="cmbX2">
@@ -249,14 +249,14 @@
       <widget class="QLabel" name="lbValoresX_5">
        <property name="geometry">
         <rect>
-         <x>50</x>
+         <x>34</x>
          <y>90</y>
-         <width>95</width>
+         <width>111</width>
          <height>25</height>
         </rect>
        </property>
        <property name="text">
-        <string>Valores de Y:</string>
+        <string>Valores para Y:</string>
        </property>
       </widget>
       <widget class="QComboBox" name="cmbY2">
@@ -439,10 +439,367 @@
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="tabEstadisticas">
+    <widget class="QWidget" name="tabREgresionLinealMultiple">
      <attribute name="title">
-      <string>Estadisticas</string>
+      <string>Regresión lineal multiple</string>
      </attribute>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>430</y>
+        <width>381</width>
+        <height>211</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Entrenamiento</string>
+      </property>
+      <widget class="QPushButton" name="btnEntrenarMultiple">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>170</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Aceptar</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbValoresX_28">
+       <property name="geometry">
+        <rect>
+         <x>24</x>
+         <y>50</y>
+         <width>121</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Valores para X1:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cmbX3">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>50</y>
+         <width>208</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbValoresX_29">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>130</y>
+         <width>111</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Valores para Y:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cmbY3">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>130</y>
+         <width>208</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbValoresX_39">
+       <property name="geometry">
+        <rect>
+         <x>22</x>
+         <y>90</y>
+         <width>121</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Valores para X2:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cmbX3_2">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>90</y>
+         <width>208</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>430</y>
+        <width>631</width>
+        <height>211</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Predicción</string>
+      </property>
+      <widget class="QPushButton" name="btnCalcularMultiple">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>140</y>
+         <width>131</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Calcular</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbValoresX_30">
+       <property name="geometry">
+        <rect>
+         <x>560</x>
+         <y>40</y>
+         <width>21</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Y</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbValoresX_31">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>40</y>
+         <width>16</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>X1</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbValoresX_32">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>70</y>
+         <width>31</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>  = </string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbValoresX_33">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>70</y>
+         <width>16</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbValoresX_34">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>40</y>
+         <width>21</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>b1</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbValoresX_35">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>40</y>
+         <width>21</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>b0</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="txtB0m">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="plainText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="txtB1m">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>70</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="plainText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="txtX1m">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>70</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="plainText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="txtYm">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>70</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="plainText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbValoresX_36">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>70</y>
+         <width>16</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbValoresX_37">
+       <property name="geometry">
+        <rect>
+         <x>440</x>
+         <y>40</y>
+         <width>16</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>X2</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="txtB2m">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>70</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="plainText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="txtX2m">
+       <property name="geometry">
+        <rect>
+         <x>410</x>
+         <y>70</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="plainText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbValoresX_38">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>40</y>
+         <width>21</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>b2</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QTableWidget" name="tblDatos3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>50</y>
+        <width>1041</width>
+        <height>371</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>10</y>
+        <width>331</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>modelo:      y   =   b0  +  b1X1  +  b2X2</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
