@@ -79,6 +79,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def plot (self):
         x=self.df[str(self.cmbX.currentText())]
         y=self.df[str(self.cmbY.currentText())]
+        sns.pairplot(self.df)
         plt.plot(x,y)
         plt.show()
                 
